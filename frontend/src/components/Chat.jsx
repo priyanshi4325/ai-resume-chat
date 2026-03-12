@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 
-const API_BASE = ""
+const API_BASE = "https://ai-resume-chat-backend.onrender.com/"
 
 function Chat() {
   const [message, setMessage] = useState("")
