@@ -16,6 +16,13 @@ function Chat() {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [chat])
 
+  useEffect(() => {
+  const ping = () => fetch(`${API_BASE}/health`).catch(() => {})
+  ping()
+  const interval = setInterval(ping, 25000)
+  return () => clearInterval(interval)
+}, [])
+
   const uploadResume = async () => {
     if (!file) {
       alert("Please select a file first")
